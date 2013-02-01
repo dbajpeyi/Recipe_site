@@ -1,0 +1,14 @@
+<h1>Add A new Recipe Here</h1>
+
+<form action="/recipes/add/" method="post">
+{% csrf_token  %}
+<label>Ingredients </label>
+
+<input type="text" name="ingredients" />
+<br />
+<label>Instructions </label>
+<input type="text" name="instructions" />
+
+<p> <input type = "submit" name="submit"/> </p>
+
+</form>

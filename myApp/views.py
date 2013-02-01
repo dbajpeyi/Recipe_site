@@ -2,6 +2,7 @@
 from django.http import HttpResponse,HttpResponseRedirect
 from myApp.models import Recipe
 from myApp.forms import RecipeForm
+from django.core.urlresolvers import reverse
 from django.template import loader, Context
 from django.core.context_processors import csrf
 
@@ -30,7 +31,7 @@ def add(request):
 		#	recipe_obj = Recipe(title=title,instruction=instruction,ingredients=ingredients)
 			form.save()
 			#redirect
-			return HttpResponse("Thank you")
+			return HttpResponse("Thank You!")
 		else:
 			return HttpResponse("Form Not Valid")
 	else:

@@ -1,5 +1,5 @@
 # Create your views here.
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from myApp.models import Recipe
 from myApp.forms import RecipeForm
 from django.template import loader, Context
@@ -24,12 +24,20 @@ def add(request):
 	if request.method == 'POST':
 		form = RecipeForm(request.POST)
 		if form.is_valid():
+		#	title = request.POST.get('title','')
+		#	ingredients = request.POST.get('ingredients','')
+		#	instructions = request.POST.get('instructions','')
+		#	recipe_obj = Recipe(title=title,instruction=instruction,ingredients=ingredients)
 			form.save()
 			#redirect
+			return HttpResponse("Thank you")
+		else:
+			return HttpResponse("Form Not Valid")
 	else:
 		form = RecipeForm()
-	context = Context({})
-	context.update(csrf(request))
-	template = loader.get_template('myApp/add.html')
-	return HttpResponse(template.render(context))
+	        
+		context = Context({'form':form,})
+		context.update(csrf(request))
+		template = loader.get_template('myApp/add.html')
+		return HttpResponse(template.render(context))
 	

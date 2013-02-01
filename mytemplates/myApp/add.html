@@ -1,14 +1,32 @@
+<!DOCTYPE html>
+
+
+<head><title>New Recipe</title></head>
+<body>
 <h1>Add A new Recipe Here</h1>
 
 <form action="/recipes/add/" method="post">
 {% csrf_token  %}
-<label>Ingredients </label>
+<label>ID<label>
+<input type="number" name="id"></input><br />
 
+<label>Title </label>
+<input type ="text" name="title"><br />
+
+<label>Ingredients</label>
 <input type="text" name="ingredients" />
 <br />
+
 <label>Instructions </label>
 <input type="text" name="instructions" />
+<br />
+
+<label>Posted On</label>
+<input type = "text" name="posted_on">
+<br />
 
 <p> <input type = "submit" name="submit"/> </p>
 
 </form>
+</body>
+</html>

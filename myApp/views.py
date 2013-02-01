@@ -6,7 +6,7 @@ from django.template import loader, Context
 from django.core.context_processors import csrf
 
 def index(request):
-	list_of_recipes = Recipe.objects.order_by('-posted_on')[:5]
+	list_of_recipes = Recipe.objects.order_by('id')[:5]
 	template = loader.get_template('myApp/index.html')
 	context = Context({'list_of_recipes': list_of_recipes,})
 	
